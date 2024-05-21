@@ -9,7 +9,7 @@ import {Toaster} from 'react-hot-toast'
 import { UserContextProvider } from '../context/userContext';
 import { loginApiUrl } from '../config';
 
-axios.defaults.baseURL = loginApiUrl; //'http://localhost:8000'//'http://host.docker.internal:8000';
+axios.defaults.baseURL = "overmeli-loginapi.railway.internal" //loginApiUrl; //'http://localhost:8000'//'http://host.docker.internal:8000';
 axios.defaults.withCredentials = true;
 
 
