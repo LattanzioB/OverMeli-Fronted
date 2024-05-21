@@ -13,6 +13,6 @@ export default defineConfig({
    strictPort: true,
    host: true,
    //origin: "http://0.0.0.0:8080",
-   origin: `http://localhost:${process.env.PORT || 8090}`,
+   origin: "https://overmeli-loginapi-production.up.railway.app" //`http://localhost:${process.env.PORT || 8090}`,
   }
 })
