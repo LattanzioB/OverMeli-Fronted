@@ -3,5 +3,6 @@ const {
   } = process.env;
 
   const loginApiUrl = LOGINAPI_URL || 'http://localhost:8000'
-
-  export { loginApiUrl };
+  console.log("Login Api URL: ", loginApiUrl)
+  
+  export default loginApiUrl ;
