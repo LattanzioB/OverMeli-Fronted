@@ -14,9 +14,9 @@ export default function Delete() {
     e.preventDefault()
     const {userName, password} = data
     try {
-      const {data} = await axios.delete('/delete', {
+      const {data} = await axios.delete('/delete', {data:{
         userName, password
-      })
+      }})
       if(data.error){
         toast.error(data.error)
       }else{
