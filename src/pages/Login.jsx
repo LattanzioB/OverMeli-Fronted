@@ -26,6 +26,7 @@ export default function Login() {
           userName: '',
           password: '',
         });
+        toast.success('Loged In!')
         navigate('/');
       }
      } catch (error) {
