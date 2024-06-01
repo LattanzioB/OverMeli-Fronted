@@ -8,6 +8,9 @@ import Delete from './pages/Delete'
 import axios from 'axios';
 import {Toaster} from 'react-hot-toast'
 import { UserContextProvider } from '../context/userContext';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
 
 axios.defaults.baseURL = 'http://localhost:8000'//'http://host.docker.internal:8000';
 axios.defaults.withCredentials = true;
