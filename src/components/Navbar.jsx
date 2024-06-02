@@ -12,8 +12,8 @@ export default function AppNavbar() {
     logout();
   };
 
-    return (
-      <Navbar expand="lg" className="bg-body-tertiary fixed-top">
+  return (
+    <Navbar expand="lg" className="bg-body-tertiary fixed-top">
       <Container>
         <Navbar.Brand as={Link} to="/">OverMeli</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -25,7 +25,9 @@ export default function AppNavbar() {
             <NavDropdown title="User" id="basic-nav-dropdown" align="end">
               <NavDropdown.Item as={Link} to="/register">Register</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/login">Login</NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/delete">Delete</NavDropdown.Item>
+              {user && user.role === 'admin' && (
+                <NavDropdown.Item as={Link} to="/delete">Delete</NavDropdown.Item>
+              )}
               {user && (
                 <NavDropdown.Item onClick={handleLogout}>Logout</NavDropdown.Item>
               )}
