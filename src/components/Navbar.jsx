@@ -3,8 +3,15 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { useUser } from '../../context/userContext';
 
 export default function AppNavbar() {
+  const { user, logout } = useUser();
+
+  const handleLogout = () => {
+    logout();
+  };
+
     return (
       <Navbar expand="lg" className="bg-body-tertiary fixed-top">
       <Container>
@@ -19,6 +26,9 @@ export default function AppNavbar() {
               <NavDropdown.Item as={Link} to="/register">Register</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/login">Login</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/delete">Delete</NavDropdown.Item>
+              {user && (
+                <NavDropdown.Item onClick={handleLogout}>Logout</NavDropdown.Item>
+              )}
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>

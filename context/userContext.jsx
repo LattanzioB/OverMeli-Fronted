@@ -16,8 +16,13 @@ export function UserContextProvider({ children }) {
     });
   }, []);
 
+  const logout = () => {
+    setUser(null);
+    // Perform any other logout tasks like clearing cookies or session data
+  };
+
   return (
-    <UserContext.Provider value={{ user, setUser }}>
+    <UserContext.Provider value={{ user, setUser, logout }}>
       {children}
     </UserContext.Provider>
   );
