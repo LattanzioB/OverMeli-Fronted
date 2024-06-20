@@ -16,7 +16,7 @@ export default function Delete() {
 
   const deleteUser = async (e) => {
     e.preventDefault();
-    if (user.role !== 'admin') {
+    if (!(user && user.role === 'admin')) {
       toast.error('You do not have permission to delete users');
       return;
     }
@@ -36,7 +36,7 @@ export default function Delete() {
     }
   };
 
-  if (user.role !== 'admin') {
+  if (!(user && user.role === 'admin')){
     return <p>You do not have permission to view this page</p>;
   }
 

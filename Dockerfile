@@ -2,7 +2,7 @@ FROM node:20.11-buster
 
 WORKDIR /app
 
-COPY package.json .
+COPY package*.json ./
 
 RUN npm install
 

@@ -20,16 +20,18 @@ export default function AppNavbar() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link as={Link} to="/">Home</Nav.Link>
+            <Nav.Link as={Link} to="/search">Search</Nav.Link>
+            <Nav.Link as={Link} to="/likes">Likes</Nav.Link>
           </Nav>
           <Nav className="ms-auto">
-            <NavDropdown title="User" id="basic-nav-dropdown" align="end">
+            <NavDropdown title="User Actions" id="basic-nav-dropdown" align="end">
               <NavDropdown.Item as={Link} to="/register">Register</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/login">Login</NavDropdown.Item>
               {user && user.role === 'admin' && (
                 <NavDropdown.Item as={Link} to="/delete">Delete</NavDropdown.Item>
               )}
               {user && (
-                <NavDropdown.Item onClick={handleLogout}>Logout</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/home" onClick={handleLogout}>Logout</NavDropdown.Item>
               )}
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
