@@ -1,7 +1,8 @@
 import axios from 'axios';
+import { loginApiUrl } from '../config';
 
 // Default API (e.g., user authentication)
-axios.defaults.baseURL = 'http://localhost:8000';
+axios.defaults.baseURL = loginApiUrl;
 axios.defaults.withCredentials = true;
 
 // Product search API
