@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Modal, Button, Form } from 'react-bootstrap';
 import { toast } from 'react-hot-toast';
 import { FaStar } from 'react-icons/fa';
@@ -8,12 +9,13 @@ const RatingFormModal = ({ show, onHide, product, user }) => {
   const [rate, setRating] = useState(0);
   const [comment, setComment] = useState('');
 
-
   const handleRatingChange = (value) => {
     setRating(value);
   };
-  const productId = product.productId
-  const productName = product.productName
+
+  const productId = product.productId;
+  const productName = product.productName;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -46,11 +48,11 @@ const RatingFormModal = ({ show, onHide, product, user }) => {
           </Form.Group>
           <Form.Group controlId="formProductID">
             <Form.Label>Product ID</Form.Label>
-            <Form.Control type="text" value={product.productId} readOnly />
+            <Form.Control type="text" value={productId} readOnly />
           </Form.Group>
           <Form.Group controlId="formProductName">
             <Form.Label>Product Name</Form.Label>
-            <Form.Control type="text" value={product.productName} readOnly />
+            <Form.Control type="text" value={productName} readOnly />
           </Form.Group>
           <Form.Group controlId="formRating">
             <Form.Label>Rate</Form.Label>
@@ -81,6 +83,16 @@ const RatingFormModal = ({ show, onHide, product, user }) => {
       </Modal.Body>
     </Modal>
   );
+};
+
+RatingFormModal.propTypes = {
+  show: PropTypes.bool.isRequired,
+  onHide: PropTypes.func.isRequired,
+  product: PropTypes.shape({
+    productId: PropTypes.string.isRequired,
+    productName: PropTypes.string.isRequired,
+  }).isRequired,
+  user: PropTypes.string.isRequired,
 };
 
 export default RatingFormModal;

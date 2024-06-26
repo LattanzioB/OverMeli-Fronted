@@ -22,7 +22,7 @@ export default function Login() {
         userName,
         password
       });
-      if (!!response.error) {
+      if (response.error) {
         toast.error(response.error);
       } else {
         setData({

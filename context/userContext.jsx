@@ -1,4 +1,5 @@
 import axios from 'axios';
+import PropTypes from 'prop-types';
 import { createContext, useState, useEffect, useContext } from 'react';
 
 export const UserContext = createContext({});
@@ -7,13 +8,15 @@ export function UserContextProvider({ children }) {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    axios.get('/profile').then(({ data }) => {
-      if (data.userName) {
-        setUser(data);
-      }
-    }).catch(error => {
-      console.error("Error fetching profile:", error);
-    });
+    axios.get('/profile')
+      .then(({ data }) => {
+        if (data.userName) {
+          setUser(data);
+        }
+      })
+      .catch(error => {
+        console.error("Error fetching profile:", error);
+      });
   }, []);
 
   const logout = () => {
@@ -27,5 +30,9 @@ export function UserContextProvider({ children }) {
     </UserContext.Provider>
   );
 }
+
+UserContextProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 export const useUser = () => useContext(UserContext);

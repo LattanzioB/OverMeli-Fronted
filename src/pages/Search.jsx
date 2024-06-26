@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { productSearchApi } from '../axiosConfig';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';

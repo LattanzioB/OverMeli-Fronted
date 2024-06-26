@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { productSearchApi } from '../axiosConfig';
 import { useUser } from '../../context/userContext';
 
@@ -9,13 +9,12 @@ const ProductsLiked = () => {
   useEffect(() => {
     const fetchLikedProducts = async () => {
       try {
-        var response
-        if (user && user.role === 'admin'){
-          response = await productSearchApi.get('/productsLikedBy', {params: {user: "all"} });
+        var response;
+        if (user && user.role === 'admin') {
+          response = await productSearchApi.get('/productsLikedBy', { params: { user: 'all' } });
+        } else if (user) {
+          response = await productSearchApi.get('/productsLikedBy', { params: { user: user.userName } });
         }
-         else if (user){
-          response = await productSearchApi.get('/productsLikedBy', {params: {user: user.userName} });
-         }
         setLikedProducts(response.data);
       } catch (error) {
         console.error('Error fetching liked products:', error);
@@ -24,13 +23,13 @@ const ProductsLiked = () => {
     };
 
     fetchLikedProducts();
-  }, []);
+  }, [user]);
 
   return (
     <div>
       <h2>Products Liked By Users</h2>
       <ul>
-        {likedProducts.map(product => (
+        {likedProducts.map((product) => (
           <li key={product.productId}>
             <strong>Product Name:</strong> {product.productName}<br />
             <strong>Rate:</strong> {product.rate}<br />
