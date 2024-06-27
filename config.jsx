@@ -3,7 +3,10 @@ const {
     LOGINAPI_URL
   } = process.env;
   */
-  const loginApiUrl = process.env.REACT_APP_LOGINAPI_URL || "https://overmeli-loginapi-production.up.railway.app"
+
+  require('dotenv').config();
+
+  const loginApiUrl = process.env.REACT_APP_LOGINAPI_URL 
 
   console.log("Login Api URL: ", loginApiUrl)
   
