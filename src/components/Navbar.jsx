@@ -34,7 +34,6 @@ export default function AppNavbar() {
                 <NavDropdown.Item as={Link} to="/" onClick={handleLogout}>Logout</NavDropdown.Item>
               )}
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               {user && user.role === 'admin' && (
                 <NavDropdown.Item as={Link} to="/likesAVG">Average Likes</NavDropdown.Item>
               )}
