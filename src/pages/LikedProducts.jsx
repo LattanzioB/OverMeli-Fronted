@@ -32,6 +32,7 @@ const ProductsLiked = () => {
       <Table striped bordered hover>
         <thead>
           <tr>
+            <th>UserName</th>
             <th>Product Name</th>
             <th>Rate</th>
             <th>Comment</th>
@@ -40,6 +41,7 @@ const ProductsLiked = () => {
         <tbody>
           {likedProducts.map((product) => (
             <tr key={product.productId}>
+              <td>{product.userName}</td>
               <td>{product.productName}</td>
               <td>{product.rate}</td>
               <td>{product.comment}</td>
