@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { productSearchApi } from '../axiosConfig';
+import Table from 'react-bootstrap/Table';
 
 const ProductsLikedAvg = () => {
   const [products, setProducts] = useState([]);
@@ -21,7 +22,7 @@ const ProductsLikedAvg = () => {
   return (
     <div>
       <h2>Products with Average Ratings</h2>
-      <table>
+      <Table striped bordered hover>
         <thead>
           <tr>
             <th>Product ID</th>
@@ -38,7 +39,7 @@ const ProductsLikedAvg = () => {
             </tr>
           ))}
         </tbody>
-      </table>
+      </Table>
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { productSearchApi } from '../axiosConfig';
 import { useUser } from '../../context/userContext';
+import Table from 'react-bootstrap/Table';
 
 const ProductsLiked = () => {
   const [likedProducts, setLikedProducts] = useState([]);
@@ -28,7 +29,7 @@ const ProductsLiked = () => {
   return (
     <div>
       <h2>Products Liked By Users</h2>
-      <table>
+      <Table striped bordered hover>
         <thead>
           <tr>
             <th>Product Name</th>
@@ -45,7 +46,7 @@ const ProductsLiked = () => {
             </tr>
           ))}
         </tbody>
-      </table>
+        </Table>
     </div>
   );
 };
