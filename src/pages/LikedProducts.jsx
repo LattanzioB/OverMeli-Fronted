@@ -28,15 +28,24 @@ const ProductsLiked = () => {
   return (
     <div>
       <h2>Products Liked By Users</h2>
-      <ul>
-        {likedProducts.map((product) => (
-          <li key={product.productId}>
-            <strong>Product Name:</strong> {product.productName}<br />
-            <strong>Rate:</strong> {product.rate}<br />
-            <strong>Comment:</strong> {product.comment}<br />
-          </li>
-        ))}
-      </ul>
+      <table>
+        <thead>
+          <tr>
+            <th>Product Name</th>
+            <th>Rate</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          {likedProducts.map((product) => (
+            <tr key={product.productId}>
+              <td>{product.productName}</td>
+              <td>{product.rate}</td>
+              <td>{product.comment}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };

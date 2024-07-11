@@ -7,6 +7,7 @@ import Login from './pages/Login'
 import Delete from './pages/Delete'
 import ProductSearch from './pages/Search'
 import ProductsLiked from './pages/LikedProducts'
+import ProductsLikedAvg from './pages/AVGLikedProducts'
 import {Toaster} from 'react-hot-toast'
 import { UserContextProvider } from '../context/userContext';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -26,6 +27,7 @@ function App() {
         <Route path="/delete" element={<Delete />} />
         <Route path="/search" element={<ProductSearch />} />
         <Route path="/likes" element={<ProductsLiked />} />
+        <Route path="/likesAVG" element={<ProductsLikedAvg />} />
     </Routes>
     </UserContextProvider>
   )

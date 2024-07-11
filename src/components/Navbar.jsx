@@ -31,14 +31,13 @@ export default function AppNavbar() {
                 <NavDropdown.Item as={Link} to="/delete">Delete</NavDropdown.Item>
               )}
               {user && (
-                <NavDropdown.Item as={Link} to="/home" onClick={handleLogout}>Logout</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/" onClick={handleLogout}>Logout</NavDropdown.Item>
               )}
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+              {user && user.role === 'admin' && (
+                <NavDropdown.Item as={Link} to="/likesAVG">Average Likes</NavDropdown.Item>
+              )}
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
